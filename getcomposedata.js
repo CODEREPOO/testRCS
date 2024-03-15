@@ -19,16 +19,16 @@ app1.get('/', async (req, res) => {
     try {
 
 
-let gettokenfrmheader = req.headers.authorization;
-    const decordetkn = jwt.verify(gettokenfrmheader, signatureKey)
+		let gettokenfrmheader = req.headers.authorization;
+		const decordetkn = jwt.verify(gettokenfrmheader, signatureKey)
 
-    console.log("this is decode data", decordetkn.ID)
+		console.log("this is decode data", decordetkn.ID)
 
 
-    query_str1 = `CALL SenderData(?)`,
-    query_str2 = `CALL groups1_Info(?)`,
-    query_str3 = `CALL Get_Msgs(?)`,
-    query_str4 = `CALL Get_Temps(?)`
+		query_str1 = `CALL SenderData(?)`,
+		query_str2 = `CALL groups1_Info(?)`,
+		query_str3 = `CALL Get_Msgs(?)`,
+		query_str4 = `CALL Get_Temps(?)`
 
 
 
