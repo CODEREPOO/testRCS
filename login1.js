@@ -17,11 +17,11 @@ const option={expiresIn:'1h'}
 
 
 app1.post('/', async (req, res) => {
+
+    try {
     let uname = req.body.uname;
     let pwd = req.body.pwd;
     const query_str = `CALL Check_User(?,?,@uid,@uname); SELECT @uid UID, @uname UNAME`;
-
-    try {
         const result = await mysql.query(query_str, [uname, pwd]);
         console.log(result);
         if (result[1][0].UID > 0) {

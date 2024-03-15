@@ -15,7 +15,11 @@ const signatureKey = 'pavan123@'
 
 
 app1.get('/', async (req, res) => {
-    let gettokenfrmheader = req.headers.authorization;
+    
+    try {
+
+
+let gettokenfrmheader = req.headers.authorization;
     const decordetkn = jwt.verify(gettokenfrmheader, signatureKey)
 
     console.log("this is decode data", decordetkn.ID)
@@ -27,7 +31,6 @@ app1.get('/', async (req, res) => {
     query_str4 = `CALL Get_Temps(?)`
 
 
-    try {
 
         resultofqury1 = await pool1.query(query_str1, [decordetkn.ID]);
         resultofqury2 = await pool1.query(query_str2, [decordetkn.ID]);
